@@ -21,6 +21,7 @@ const quickChips = [
 
 const FoodLoggingScreen = ({ onBack, onReview }: FoodLoggingScreenProps) => {
   const [input, setInput] = useState("");
+  const [sugarInput, setSugarInput] = useState("");
   const [items, setItems] = useState<FoodItem[]>([]);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editValue, setEditValue] = useState("");
