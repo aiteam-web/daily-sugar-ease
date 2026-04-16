@@ -21,6 +21,7 @@ const quickChips = [
 
 const FoodLoggingScreen = ({ onBack, onReview }: FoodLoggingScreenProps) => {
   const [input, setInput] = useState("");
+  const [sugarInput, setSugarInput] = useState("");
   const [items, setItems] = useState<FoodItem[]>([]);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editValue, setEditValue] = useState("");
@@ -31,6 +32,12 @@ const FoodLoggingScreen = ({ onBack, onReview }: FoodLoggingScreenProps) => {
     setItems((prev) => [...prev, { id: nextId, name: name.trim(), sugar }]);
     setNextId((p) => p + 1);
     setInput("");
+    setSugarInput("");
+  };
+
+  const addFromInput = () => {
+    const sugar = parseInt(sugarInput) || 5;
+    addItem(input, sugar);
   };
 
   const removeItem = (id: number) => {
@@ -85,12 +92,19 @@ const FoodLoggingScreen = ({ onBack, onReview }: FoodLoggingScreenProps) => {
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && addItem(input, 5)}
+            onKeyDown={(e) => e.key === "Enter" && addFromInput()}
             placeholder="Enter food or drink…"
             className="flex-1 py-3 px-4 rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground text-base shadow-sm focus:outline-none focus:ring-2 focus:ring-ring/30"
           />
+          <input
+            value={sugarInput}
+            onChange={(e) => setSugarInput(e.target.value.replace(/\D/g, ""))}
+            onKeyDown={(e) => e.key === "Enter" && addFromInput()}
+            placeholder="g"
+            className="w-16 py-3 px-2 text-center rounded-xl bg-card border border-border text-foreground placeholder:text-muted-foreground text-base shadow-sm focus:outline-none focus:ring-2 focus:ring-ring/30"
+          />
           <button
-            onClick={() => addItem(input, 5)}
+            onClick={addFromInput}
             className="w-12 h-12 rounded-xl bg-primary text-primary-foreground flex items-center justify-center shadow-md"
           >
             <Plus className="w-5 h-5" />
