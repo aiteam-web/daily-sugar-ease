@@ -27,12 +27,12 @@ const Index = () => {
     <div className="w-full min-h-screen overflow-hidden relative">
       <AnimatePresence mode="wait">
         {screen === 0 && (
-          <motion.div key="start" variants={pageVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.3 }}>
+          <motion.div key="start" className="w-full" variants={pageVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.3 }}>
             <StartScreen onStart={() => setScreen(1)} />
           </motion.div>
         )}
         {screen === 1 && (
-          <motion.div key="log" variants={pageVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.3 }}>
+          <motion.div key="log" className="w-full" variants={pageVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.3 }}>
             <FoodLoggingScreen
               onBack={() => setScreen(0)}
               onReview={(foodItems) => {
@@ -43,7 +43,7 @@ const Index = () => {
           </motion.div>
         )}
         {screen === 2 && (
-          <motion.div key="summary" variants={pageVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.3 }}>
+          <motion.div key="summary" className="w-full" variants={pageVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.3 }}>
             <SummaryScreen
               items={items}
               onBack={() => setScreen(1)}
@@ -52,7 +52,7 @@ const Index = () => {
           </motion.div>
         )}
         {screen === 3 && (
-          <motion.div key="feedback" variants={pageVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.3 }}>
+          <motion.div key="feedback" className="w-full" variants={pageVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.3 }}>
             <FeedbackScreen
               total={total}
               onBack={() => setScreen(2)}

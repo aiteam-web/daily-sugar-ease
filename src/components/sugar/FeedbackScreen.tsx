@@ -15,7 +15,8 @@ const FeedbackScreen = ({ total, onDone, onBack }: FeedbackScreenProps) => {
     : "You're keeping your sugar in check. Keep up the great work!";
 
   return (
-    <div className={`flex flex-col min-h-screen px-6 py-4 ${isHigh ? "gradient-peach" : "gradient-green"}`}>
+    <div className={`flex flex-col min-h-screen px-6 py-4 items-center ${isHigh ? "gradient-peach" : "gradient-green"}`}>
+      <div className="w-full max-w-md flex flex-col min-h-screen">
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -83,6 +84,7 @@ const FeedbackScreen = ({ total, onDone, onBack }: FeedbackScreenProps) => {
           Done
         </button>
       </motion.div>
+      </div>
     </div>
   );
 };

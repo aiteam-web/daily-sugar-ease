@@ -7,7 +7,8 @@ interface StartScreenProps {
 
 const StartScreen = ({ onStart }: StartScreenProps) => {
   return (
-    <div className="flex flex-col min-h-screen gradient-main px-6 py-4">
+    <div className="flex flex-col min-h-screen gradient-main px-6 py-4 items-center">
+      <div className="w-full max-w-md flex flex-col min-h-screen">
       <motion.button
         initial={{ opacity: 0, x: -10 }}
         animate={{ opacity: 1, x: 0 }}
@@ -56,6 +57,7 @@ const StartScreen = ({ onStart }: StartScreenProps) => {
         </motion.button>
       </div>
 
+      </div>
     </div>
   );
 };
