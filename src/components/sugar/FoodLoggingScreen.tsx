@@ -32,6 +32,12 @@ const FoodLoggingScreen = ({ onBack, onReview }: FoodLoggingScreenProps) => {
     setItems((prev) => [...prev, { id: nextId, name: name.trim(), sugar }]);
     setNextId((p) => p + 1);
     setInput("");
+    setSugarInput("");
+  };
+
+  const addFromInput = () => {
+    const sugar = parseInt(sugarInput) || 5;
+    addItem(input, sugar);
   };
 
   const removeItem = (id: number) => {
