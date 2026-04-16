@@ -57,6 +57,7 @@ const FoodLoggingScreen = ({ onBack, onReview }: FoodLoggingScreenProps) => {
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
+      <div className="w-full max-w-md mx-auto flex flex-col min-h-screen">
       {/* Header */}
       <div className="gradient-blue px-6 pt-4 pb-6">
         <motion.button
@@ -180,6 +181,7 @@ const FoodLoggingScreen = ({ onBack, onReview }: FoodLoggingScreenProps) => {
         >
           Review Intake
         </button>
+      </div>
       </div>
     </div>
   );

@@ -42,7 +42,8 @@ const SummaryScreen = ({ items, onBack, onFeedback }: SummaryScreenProps) => {
   const comparison = total > 32 ? "Higher than yesterday" : "Lower than your usual intake";
 
   return (
-    <div className="flex flex-col min-h-screen gradient-peach px-6 py-4">
+    <div className="flex flex-col min-h-screen gradient-peach px-6 py-4 items-center">
+      <div className="w-full max-w-md flex flex-col min-h-screen">
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -127,6 +128,7 @@ const SummaryScreen = ({ items, onBack, onFeedback }: SummaryScreenProps) => {
       >
         See Feedback
       </motion.button>
+      </div>
     </div>
   );
 };
