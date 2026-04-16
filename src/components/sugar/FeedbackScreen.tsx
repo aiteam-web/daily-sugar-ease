@@ -82,9 +82,6 @@ const FeedbackScreen = ({ total, onDone, onBack }: FeedbackScreenProps) => {
         >
           Done
         </button>
-        <button className="w-full py-3 text-primary font-semibold text-base">
-          Set tomorrow's goal
-        </button>
       </motion.div>
     </div>
   );

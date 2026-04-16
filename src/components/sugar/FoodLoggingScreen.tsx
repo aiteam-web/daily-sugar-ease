@@ -13,11 +13,6 @@ interface FoodLoggingScreenProps {
   onReview: (items: FoodItem[]) => void;
 }
 
-const quickChips = [
-  { label: "Tea/Coffee", sugar: 5 },
-  { label: "Snacks", sugar: 10 },
-  { label: "Dessert", sugar: 15 },
-];
 
 const FoodLoggingScreen = ({ onBack, onReview }: FoodLoggingScreenProps) => {
   const [input, setInput] = useState("");
@@ -115,23 +110,6 @@ const FoodLoggingScreen = ({ onBack, onReview }: FoodLoggingScreenProps) => {
           Estimate sugar in grams
         </p>
 
-        {/* Quick chips */}
-        <motion.div
-          initial={{ y: 10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="flex gap-2 flex-wrap"
-        >
-          {quickChips.map((chip) => (
-            <button
-              key={chip.label}
-              onClick={() => addItem(chip.label, chip.sugar)}
-              className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm font-semibold shadow-sm active:scale-95 transition-transform"
-            >
-              {chip.label} ({chip.sugar}g)
-            </button>
-          ))}
-        </motion.div>
 
         {/* Items list */}
         <div className="space-y-2">
