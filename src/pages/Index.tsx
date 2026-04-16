@@ -24,7 +24,7 @@ const Index = () => {
   const total = items.reduce((s, i) => s + i.sugar, 0);
 
   return (
-    <div className="w-full min-h-screen overflow-hidden relative">
+    <div className="w-full min-h-screen overflow-hidden relative flex justify-center">
       <AnimatePresence mode="wait">
         {screen === 0 && (
           <motion.div key="start" variants={pageVariants} initial="initial" animate="animate" exit="exit" transition={{ duration: 0.3 }}>
