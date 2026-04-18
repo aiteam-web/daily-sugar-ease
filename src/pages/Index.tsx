@@ -4,6 +4,7 @@ import StartScreen from "@/components/sugar/StartScreen";
 import FoodLoggingScreen from "@/components/sugar/FoodLoggingScreen";
 import SummaryScreen from "@/components/sugar/SummaryScreen";
 import FeedbackScreen from "@/components/sugar/FeedbackScreen";
+import { saveEntry } from "@/lib/sugarHistory";
 
 interface FoodItem {
   id: number;
@@ -57,6 +58,7 @@ const Index = () => {
               total={total}
               onBack={() => setScreen(2)}
               onDone={() => {
+                if (total > 0) saveEntry(total);
                 setScreen(0);
                 setItems([]);
               }}

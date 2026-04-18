@@ -1,21 +1,29 @@
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
+import HistorySheet from "./HistorySheet";
+import { loadHistory } from "@/lib/sugarHistory";
 
 interface StartScreenProps {
   onStart: () => void;
 }
 
 const StartScreen = ({ onStart }: StartScreenProps) => {
+  const history = loadHistory();
   return (
     <div className="flex flex-col min-h-screen gradient-main px-6 py-4 items-center">
       <div className="w-full max-w-md flex flex-col min-h-screen">
-        <motion.button
-          initial={{ opacity: 0, x: -10 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="w-10 h-10 rounded-xl bg-card/80 backdrop-blur flex items-center justify-center shadow-sm self-start"
-        >
-          <ArrowLeft className="w-5 h-5 text-foreground" />
-        </motion.button>
+        <div className="flex items-center justify-between">
+          <motion.button
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="w-10 h-10 rounded-xl bg-card/80 backdrop-blur flex items-center justify-center shadow-sm"
+          >
+            <ArrowLeft className="w-5 h-5 text-foreground" />
+          </motion.button>
+          <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }}>
+            <HistorySheet entries={history} />
+          </motion.div>
+        </div>
 
         <div className="flex-1 flex flex-col items-center justify-center text-center gap-4">
           <motion.div
